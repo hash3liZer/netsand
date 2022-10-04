@@ -8,10 +8,12 @@
     group: 'sudo'
     append: yes
 
-- name: Create alias for server
-  lineinfile:
-    path: '/etc/hosts'
-    line: '192.168.20.5 server'
+- name: Setting a welcome message for attacker on machine
+  copy:
+    src: welcome.txt
+    dest: '/home/kypo/welcome.txt'
+    owner: kypo
+    mode: 0644
 
 - name: Install packages
   apt:
