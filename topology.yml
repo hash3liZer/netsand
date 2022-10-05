@@ -22,7 +22,7 @@ hosts:
 routers:
   - name: router
     base_box:
-      image: ubuntu-focal-x86_64
+      image: cirros
       man_user: router
     flavor: standard.small
 
