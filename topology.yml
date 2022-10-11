@@ -3,13 +3,13 @@ name: netsand
 hosts:
   - name: fbserver
     base_box:
-      image: debian-9-x86_64
+      image: ubuntu-focal-x86_64
       man_user: mark
     flavor: standard.small
 
   - name: lnserver
     base_box:
-      image: debian-9-x86_64
+      image: ubuntu-focal-x86_64
       man_user: elon
     flavor: standard.small
 
