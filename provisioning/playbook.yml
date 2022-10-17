@@ -1,26 +1,26 @@
 ---
 
-- name: user access
-  hosts:
-      - indiaserver
-      - russiaserver
-      - uaeserver
-      - client
-  gather_facts: no
-  become: yes
-  become_user: root
-
-  tasks:
-      - include_role:
-            name: kypo-user-access
-        vars:
-            kypo_user_access_username: '{{ user }}'
-            kypo_user_access_password: 'kypo'
-        with_items:
-            - kypo
-            - root
-        loop_control:
-            loop_var: user
+# - name: user access
+#   hosts:
+#       - indiaserver
+#       - russiaserver
+#       - uaeserver
+#       - client
+#   gather_facts: no
+#   become: yes
+#   become_user: root
+#
+#   tasks:
+#       - include_role:
+#             name: kypo-user-access
+#         vars:
+#             kypo_user_access_username: '{{ user }}'
+#             kypo_user_access_password: 'kypo'
+#         with_items:
+#             - kypo
+#             - root
+#         loop_control:
+#             loop_var: user
 
 - name: Setting up connection
   hosts:
