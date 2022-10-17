@@ -1,7 +1,19 @@
 name: netsand
 
 hosts:
-  - name: server
+  - name: indiaserver
+    base_box:
+      image: ubuntu-focal-x86_64
+      man_user: ubuntu
+    flavor: standard.small
+
+  - name: russiaserver
+    base_box:
+      image: ubuntu-focal-x86_64
+      man_user: ubuntu
+    flavor: standard.small
+
+  - name: uaeserver
     base_box:
       image: ubuntu-focal-x86_64
       man_user: ubuntu
@@ -29,9 +41,15 @@ networks:
     cidr: 192.168.30.0/24
 
 net_mappings:
-    - host: server
+    - host: indiaserver
       network: server-switch
       ip: 192.168.20.5
+    - host: russiaserver
+      network: server-switch
+      ip: 192.168.20.6
+    - host: uaeserver
+      network: server-switch
+      ip: 192.168.20.7
     - host: client
       network: client-switch
       ip: 192.168.30.5

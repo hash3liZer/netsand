@@ -1,21 +1,11 @@
 ---
 
-- name: disable qxl
-  hosts:
-      - routers
-      - hosts
-  gather_facts: yes
-  become: yes
-  become_user: root
-
-  tasks:
-      - include_role:
-            name: kypo-disable-qxl
-        when: ansible_os_family == 'Debian'
-
 - name: user access
   hosts:
-      - user-accessible
+      - indiaserver
+      - russiaserver
+      - uaeserver
+      - client
   gather_facts: no
   become: yes
   become_user: root
@@ -32,11 +22,11 @@
         loop_control:
             loop_var: user
 
-
-
-- name: Setting up Telnet server and client
+- name: Setting up connection
   hosts:
-    - server
+    - indiaserver
+    - russiaserver
+    - uaeserver
     - client
   become: yes
   tasks:
