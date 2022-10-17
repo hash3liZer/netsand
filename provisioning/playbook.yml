@@ -15,7 +15,7 @@
 
 - name: user access
   hosts:
-      - user-accessible
+      - hosts
   gather_facts: no
   become: yes
   become_user: root
@@ -32,12 +32,10 @@
         loop_control:
             loop_var: user
 
-
-
 - name: Setting up Telnet server and client
   hosts:
-    - server
-    - client
+    - attacker
+    - indiaserver
   become: yes
   tasks:
       - name: Test network connection using apt

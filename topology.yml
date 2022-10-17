@@ -1,14 +1,26 @@
-name: kypo-crp-demo-training
+name: netsand
 
 hosts:
-  - name: server
-    base_box: 
+  - name: indiaserver
+    base_box:
       image: ubuntu-focal-x86_64
       man_user: ubuntu
     flavor: standard.small
 
-  - name: client
-    base_box: 
+  - name: russiaserver
+    base_box:
+      image: ubuntu-focal-x86_64
+      man_user: ubuntu
+    flavor: standard.small
+
+  - name: uaeserver
+    base_box:
+      image: ubuntu-focal-x86_64
+      man_user: ubuntu
+    flavor: standard.small
+
+  - name: attacker
+    base_box:
       image: ubuntu-focal-x86_64
       man_user: ubuntu
     flavor: standard.small
@@ -29,10 +41,16 @@ networks:
     cidr: 192.168.30.0/24
 
 net_mappings:
-    - host: server
+    - host: indiaserver
       network: server-switch
       ip: 192.168.20.5
-    - host: client
+    - host: russiaserver
+      network: server-switch
+      ip: 192.168.20.6
+    - host: uaeserver
+      network: server-switch
+      ip: 192.168.20.7
+    - host: attacker
       network: client-switch
       ip: 192.168.30.5
 
