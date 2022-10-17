@@ -35,10 +35,11 @@ routers:
 networks:
   - name: server-switch
     cidr: 192.168.20.0/24
-    accessible_by_user: False
+    accessible_by_user: True
 
   - name: client-switch
     cidr: 192.168.30.0/24
+    accessible_by_user: True
 
 net_mappings:
     - host: indiaserver
