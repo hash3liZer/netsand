@@ -1,14 +1,14 @@
-name: kypo-crp-demo-training
+name: netsand
 
 hosts:
   - name: server
-    base_box: 
+    base_box:
       image: ubuntu-focal-x86_64
       man_user: ubuntu
     flavor: standard.small
 
   - name: client
-    base_box: 
+    base_box:
       image: ubuntu-focal-x86_64
       man_user: ubuntu
     flavor: standard.small
