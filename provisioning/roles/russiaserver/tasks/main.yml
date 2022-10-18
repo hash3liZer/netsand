@@ -23,10 +23,10 @@
 
 - name: Place the shell inside web directory
   copy:
-    src: index.php
-    dest: /var/www/html/index.php
-    owner: {{ username }}
-    mode: 0644
+    src: 'index.php'
+    dest: '/var/www/html/index.php'
+    owner: '{{ username }}'
+    mode: '0644'
 
 - name: Place flag
   copy:

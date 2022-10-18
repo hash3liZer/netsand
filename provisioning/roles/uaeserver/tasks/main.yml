@@ -24,11 +24,6 @@
   apt:
     name: xinetd
 
-- name: Create privilege escalation vulnerability
-  lineinfile:
-    path: /etc/sudoers
-    line: '{{ username }} ALL=(ALL) /usr/bin/less /home/{{ username }}/flag.txt'
-
 - name: Place flag
   copy:
     dest: '/home/{{ username }}/flag.txt'
