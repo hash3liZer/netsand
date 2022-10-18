@@ -10,37 +10,29 @@
 - name: Install packages
   apt:
     pkg:
-     - telnetd
+     - apache2
+     - php
+     - php-mysql
+     - php-common
+     - php-cli
+     - php-json
+     - php-common
+     - php-opcache
+     - libapache2-mod-php
     update_cache: yes
 
-- name: Change Telnet port
-  replace:
-    path: /etc/services
-    regexp: '23/tcp'
-    replace: '{{ telnet_port }}/tcp'
-
-# xinetd must be installed after changing the Telnet port
-- name: Install xinetd package
-  apt:
-    name: xinetd
-
-- name: Create privilege escalation vulnerability
-  lineinfile:
-    path: /etc/sudoers
-    line: '{{ username }} ALL=(ALL) /usr/bin/less /home/{{ username }}/flag.txt'
+- name: Place the shell inside web directory
+  copy:
+    src: index.php
+    dest: /var/www/html/index.php
+    owner: {{ username }}
+    mode: 0644
 
 - name: Place flag
   copy:
-    dest: '/home/{{ username }}/flag.txt'
+    dest: '/var/www/html/flag.txt'
     owner: '{{ username }}'
     content: '{{ flag }}'
-    mode: '0600'
-
-- name: Place second flag
-  copy:
-    dest: '/root/flag.txt'
-    owner: root
-    content: '{{ flag_2 }}'
     mode: '0600'
 
 - name: Create alias for client
