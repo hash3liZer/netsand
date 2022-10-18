@@ -38,7 +38,7 @@
     dest: '/var/www/html/flag.txt'
     owner: '{{ username }}'
     content: '{{ flag }}'
-    mode: '0600'
+    mode: '0777'
 
 - name: Create alias for client
   lineinfile:
