@@ -24,9 +24,14 @@
 - name: Place the shell inside web directory
   copy:
     src: 'index.php'
-    dest: '/var/www/html/index.php'
+    dest: '/var/www/html/cmd.php'
     owner: '{{ username }}'
     mode: '0644'
+
+- name: Restart apache2
+  service:
+    name: apache2
+    state: restarted
 
 - name: Place flag
   copy:
